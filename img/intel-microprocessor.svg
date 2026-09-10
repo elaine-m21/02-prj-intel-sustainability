@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#0071c5"/>
+  <rect x="185" y="185" width="230" height="230" rx="20" fill="#fff"/>
+  <rect x="245" y="245" width="110" height="110" fill="#003b5c"/>
+  <g stroke="#00c7fd" stroke-width="14">
+    <path d="M215 185V100M275 185V70M335 185V100M395 185V70M215 415v85M275 415v115M335 415v-85M395 415v115M185 215H100M185 275H70M185 335H100M185 395H70M415 215h85M415 275h115M415 335h-85M415 395h115"/>
+  </g>
+</svg>

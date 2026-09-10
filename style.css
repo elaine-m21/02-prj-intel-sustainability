@@ -1,1 +1,267 @@
-/* Add your CSS here */
+/* Give every element predictable sizing for responsive layouts. */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Give the page a simple, readable base style. */
+body {
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	color: #17202a;
+	background-color: #f4f7f9;
+	overflow-x: hidden;
+}
+
+/* Use the Intel logo as an opaque background for the hero. */
+header {
+	min-height: 360px;
+	padding: 120px 10% 80px;
+	box-sizing: border-box;
+	background-color: #003b5c;
+	background-image: url("img/intel-header-logo.svg");
+	background-repeat: no-repeat;
+	background-position: right 10% center;
+	background-size: 420px auto;
+	color: white;
+}
+
+header div {
+	width: 100%;
+	max-width: 560px;
+}
+
+h1 {
+	margin: 0 0 40px;
+	font-size: 38px;
+	line-height: 1.1;
+	overflow-wrap: break-word;
+	text-align: center;
+}
+
+p {
+	max-width: 100%;
+	overflow-wrap: break-word;
+}
+
+header p {
+	width: 100%;
+	max-width: 560px;
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.6;
+	overflow-wrap: break-word;
+	text-align: center;
+}
+
+/* Keep the hero heading and description aligned at every screen size. */
+header h1,
+header p {
+	width: 100%;
+	max-width: 560px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* Arrange the timeline cards in one horizontal scrolling row. */
+section {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	gap: 24px;
+	width: 100%;
+	max-width: 1100px;
+	margin: 48px auto;
+	padding: 0 24px;
+	box-sizing: border-box;
+}
+
+/* Make each timeline card a bright blue square with white text. */
+section > div {
+	width: calc((100% - 48px) / 3);
+	flex: 0 0 calc((100% - 48px) / 3);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	aspect-ratio: 1;
+	box-sizing: border-box;
+	padding: 24px;
+	background-color: #3dd5ff;
+	color: white;
+	text-align: center;
+	overflow: auto;
+	scroll-snap-align: start;
+	cursor: pointer;
+	transition: transform 0.5s ease, background-color 0.2s ease;
+}
+
+/* Keep descriptions hidden until a card is hovered. */
+section > div p {
+	max-height: 0;
+	margin-bottom: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+
+section > div:hover {
+	transform: scale(1.05);
+	background-color: #3dd5ff;
+	z-index: 1;
+}
+
+section > div:hover p {
+	max-height: 220px;
+	opacity: 1;
+}
+
+/* Use the first four timeline images as card backgrounds. */
+section > div:nth-child(1),
+section > div:nth-child(2),
+section > div:nth-child(3),
+section > div:nth-child(4) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+section > div:nth-child(1) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-foundation.svg");
+}
+
+section > div:nth-child(2) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-microprocessor.svg");
+}
+
+section > div:nth-child(3) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-x86.svg");
+}
+
+section > div:nth-child(4) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-386.svg");
+}
+
+section > div:nth-child(1),
+section > div:nth-child(2),
+section > div:nth-child(3),
+section > div:nth-child(4),
+section > div:nth-child(5),
+section > div:nth-child(6),
+section > div:nth-child(7),
+section > div:nth-child(8),
+section > div:nth-child(9) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 1;
+	color: #003b5c;
+}
+
+section > div:nth-child(5) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-semiconductor.svg");
+}
+
+section > div:nth-child(6) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-clean-energy.svg");
+}
+
+section > div:nth-child(7) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-water.svg");
+}
+
+section > div:nth-child(8) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-circular.svg");
+}
+
+section > div:nth-child(9) {
+	background-image: linear-gradient(rgba(61, 213, 255, 0.72), rgba(61, 213, 255, 0.72)), url("img/intel-future.svg");
+}
+
+section h2,
+section h3,
+section p {
+	margin-top: 0;
+	overflow-wrap: break-word;
+}
+
+/* Stack the hero text and logo before they can overlap at medium widths. */
+@media (max-width: 1200px) {
+	header {
+		min-height: 560px;
+		padding: 80px 8% 190px;
+		background-position: center bottom 24px;
+		background-size: 280px auto;
+	}
+
+	header div {
+		max-width: 100%;
+	}
+}
+
+section h2 {
+	font-size: 32px;
+}
+
+section h3 {
+	font-size: 20px;
+}
+
+section p {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+body > p {
+	width: 100%;
+	max-width: none;
+	margin: 32px 0 0;
+	padding: 14px 24px;
+	box-sizing: border-box;
+	border: 2px solid #3dd5ff;
+	background-color: #3dd5ff;
+	color: white;
+	text-align: center;
+}
+
+@media (max-width: 700px) {
+	header {
+		min-height: 560px;
+		padding: 48px 8% 190px;
+		background-position: center bottom 24px;
+		background-size: 260px auto;
+	}
+
+	header div {
+		max-width: 100%;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	section > div {
+		width: 100%;
+		flex: 0 0 auto;
+		max-width: 340px;
+	}
+
+	section {
+		flex-direction: column;
+		align-items: center;
+		overflow-x: visible;
+		scroll-snap-type: none;
+		width: 100%;
+	}
+
+	body > p {
+		width: 100%;
+		max-width: none;
+		padding: 12px 16px;
+	}
+}
